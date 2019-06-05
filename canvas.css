@@ -1,24 +1,22 @@
-
-
-html,*{
-	padding: 0;
-	margin: 0;
-	font-size: 16px;
+html,
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
 }
 
-body{
-	padding: 3rem;
-	background-color: #1F6374;
+body {
+    padding: 3rem;
+    background-color: #1F6374;
 }
 
-h1{
-	font-size: 2rem;
-	color: white;
+h1 {
+    font-size: 3rem;
+    color: white;
 }
 
-
-#areaDibujo{
-	width: 600px;
-	height: 500px;
-	border: 1px solid black;
+#areaDibujo {
+    width: 600px;
+    height: 500px;
+    border: 1px solid black;
 }
