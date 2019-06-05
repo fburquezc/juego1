@@ -1,34 +1,42 @@
 "use strict";
 
+const SUBE = 38;
+const BAJA = 40;
+const IZQUIERDA = 37;
+const DERECHA = 39;
 
 var tamanio = 10;
 var posx = 100,
     posy = 100;
 var velocidad = 10;
-var xxx;
 
 var canvas = document.getElementById("areaDibujo");
 var ctx = canvas.getContext("2d");
-var body;
 
-
+/*
+    Funcion que se Carga al Iniciar el Documento
+*/
 window.onload = function() {
+    //desplegamos el cuadro
     dibujarCuadro(posx, posy);
 
-    body = document.getElementById("body");
-
-    body.onkeydown = function(evento) {
-        procesar(evento);
-    }
-
+    //asignamos el evento al documento
+    document.addEventListener("keypress", procesar);
 }
 
 
-
+/*
+    Dibujamos el cuadro que se movera
+*/
 function dibujarCuadro(px, py) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillRect(px, py, tamanio, tamanio);
 }
+
+
+/*
+    Función que procesa cada tecla presionada
+*/
 
 function procesar(evento) {
 
@@ -38,31 +46,38 @@ function procesar(evento) {
 
     switch (tecla) {
 
-        case 38: //sube 
+        case SUBE:
             if (posy > 0) {
                 posy -= tamanio;
             }
             break;
-        case 40: //baja
+
+        case BAJA:
             if (posy < canvas.height - tamanio) {
                 posy += tamanio;
             }
             break;
-        case 39: //derecha
-            if (posx < canvas.width - tamanio) {
-                posx += tamanio;
-            }
-            break;
-        case 37: //izquierda
+
+        case IZQUIERDA:
             if (posx > 0) {
                 posx -= tamanio;
             }
             break;
+
+        case DERECHA:
+            if (posx < canvas.width - tamanio) {
+                posx += tamanio;
+            }
+            break;
+
     }
 
 }
 
 
+/*
+    Función que se llama cada cierto tiempo para redibujar el area de juego
+*/
 function principal() {
 
     dibujarCuadro(posx, posy);
